@@ -5,6 +5,8 @@ const { poolPromise } = require('./db');
 const { initializeActiveCatalog } = require('./models/activeCatalog');
 
 const teaFarmerRoutes = require('./routes/teaFarmerRoutes');
+const biodiversityRoutes = require('./routes/biodiversityRoutes');
+const biodiversityDatabaseRoutes = require('./routes/biodiversityDatabaseRoutes');
 
 const app = express();
 
@@ -42,6 +44,8 @@ app.get('/api/health', async (req, res) => {
 
 // Tea Farmer APIs
 app.use('/api/tea-farmers', teaFarmerRoutes);
+app.use('/api/biodiversity', biodiversityRoutes);
+app.use('/api/biodiversity/database', biodiversityDatabaseRoutes);
 
 const PORT = 5000;
 
